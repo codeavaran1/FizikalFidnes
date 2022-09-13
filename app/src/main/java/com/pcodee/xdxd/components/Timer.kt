@@ -39,16 +39,17 @@ fun Timer(
     var value by remember {mutableStateOf(initialValue)}
     var currentTime by remember {mutableStateOf(totalTime)}
     var isTimerRunning by remember {mutableStateOf(false)}
-    val timerStart = if(isTimerRunning && currentTime >= 0L ){
+    val timerStart = if(isTimerRunning && currentTime > 0L ){
             painterResource(id = R.drawable.timerpause) }
              else{ painterResource(id = R.drawable.timerstart)}
 
 
     LaunchedEffect(key1 = currentTime, key2 = isTimerRunning) {
-        if(currentTime > 0 && isTimerRunning) {
+        if(currentTime >= 0L && isTimerRunning) {
             delay(100L)
+            value = (currentTime) / totalTime.toFloat()
             currentTime -= 100L
-            value = currentTime / totalTime.toFloat()
+
         }
     }
 
@@ -60,9 +61,11 @@ fun Timer(
                     if (currentTime <= 0L) {
                         currentTime = totalTime
                         isTimerRunning = true
+                        value = currentTime / totalTime.toFloat()
 
                     } else {
                         isTimerRunning = !isTimerRunning
+                        value = currentTime / totalTime.toFloat()
                     }
                 }
         )
@@ -100,7 +103,7 @@ fun Timer(
         Column(verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally) {
             Text(
-                text = (currentTime / 1000L).toString(),
+                text = ((currentTime+100L) / 1000L).toString(),
                 fontSize = 44.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
@@ -125,6 +128,7 @@ fun Timer(
                     isTimerRunning = false
                     //recompose the animation
                     value = currentTime / totalTime.toFloat()
+
 
                 }
         )
