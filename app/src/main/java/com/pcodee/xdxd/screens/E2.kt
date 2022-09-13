@@ -34,7 +34,6 @@ fun E2() {
     var textState2 by remember { mutableStateOf("") }
     var textState3 by remember { mutableStateOf("") }
     val shape = RoundedCornerShape(15.dp)
-    val gradient = Brush.horizontalGradient(listOf(Color(0xFF28D8A3), Color(0xFF00BEB2),Color(0xFF62E889)))
 
     Column {
 
@@ -140,14 +139,14 @@ fun E2() {
                     Column {
                         Row {
 
-                            //Test Result Text
+                            //Test Result Text 1
                             OutlinedTextField(
                                 modifier = Modifier
                                     .width(130.dp)
                                     //.border(border = BorderStroke(color = Color.Red))
                                     .height(30.dp),
                                 value = textState1,
-                                onValueChange = { },
+                                onValueChange = {textState1 = it},
                                 readOnly = false,
                                 singleLine = true,
                                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -178,13 +177,13 @@ fun E2() {
 
                         Row {
 
-                            //Test Result Text
+                            //Test Result Text 2
                             OutlinedTextField(
                                 modifier = Modifier
                                     .width(130.dp)
                                     .height(30.dp),
                                 value = textState2,
-                                onValueChange = { },
+                                onValueChange = {textState2 = it},
                                 readOnly = false,
                                 singleLine = true,
                                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -214,13 +213,13 @@ fun E2() {
 
                         Row {
 
-                            //Test Result Text
+                            //Test Result Text 3
                             OutlinedTextField(
                                 modifier = Modifier
                                     .width(130.dp)
                                     .height(30.dp),
                                 value = textState3,
-                                onValueChange = { },
+                                onValueChange = {textState3 = it},
                                 readOnly = false,
                                 singleLine = true,
                                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -272,38 +271,48 @@ fun E2() {
                     //Next Level Button
                     Spacer(modifier = Modifier.padding(horizontal = 20.dp))
 
+                    //Gradient
+                    val gradientGreenToGreen = Brush.horizontalGradient(0f to Color(0xFF66EA95), 1000f to Color(0xFF54E459))
                     Button(
                         modifier = Modifier
                             .width(200.dp)
                             .height(50.dp)
-                            .shadow(elevation = 8.dp),
-                        colors =ButtonDefaults.buttonColors(Color(0xFF62E889)),
-                        shape = CutCornerShape(4.dp),
+                            .fillMaxSize()
+                            .clip(RoundedCornerShape(10.dp, 10.dp, 10.dp, 10.dp))
+                            .shadow(elevation = 8.dp)
+                            .background(gradientGreenToGreen),
+                        colors =ButtonDefaults.buttonColors(Color.Transparent),
                         onClick = {}
                     ) {
-                        Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 30.sp)
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(gradientGreenToGreen)
+                                .then(Modifier),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 30.sp,modifier=Modifier.fillMaxSize().background(Color.Transparent))
+                        }
                     }
+
+
+
+
+                   /* Button(
+                        modifier = Modifier
+                            .width(200.dp)
+                            .height(50.dp)
+                            //.clip(RoundedCornerShape(10.dp, 10.dp, 10.dp, 10.dp))
+                            .shadow(elevation = 8.dp)
+                            .background(gradientGreenToGreen),
+                        colors =ButtonDefaults.buttonColors(Color.Transparent),
+                        onClick = {}
+                    ) {
+                        Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 30.sp,modifier=Modifier.fillMaxSize().background(Color.Transparent))
+                    }*/
+
                 }
             }
         }
     }
 }
-
-//Brush.horizontalGradient(colors = listOf(Color(0xFF28D8A3), Color(0xFF00BEB2),Color(0xFF62E889)))
-//.background(brush = Brush.horizontalGradient(colors = listOf(Color.Cyan, Color.Magenta), startX = 200f, endX = 400f))
-
-
-/* Text(
-                         buildAnnotatedString {
-                             messages.forEach{
-                                 withStyle(style = paragraphStyle) {
-
-                                     //append("\t$bullet")
-                                     append("\t\t")
-                                     append(it)
-
-                                     Image( painter = painterResource(id = R.drawable.bullet),contentDescription = "")
-                                 }
-                             }
-                         }, fontSize = (24.sp), modifier = Modifier.padding(top = 7.dp)
-                     )*/
