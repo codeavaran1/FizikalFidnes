@@ -28,9 +28,8 @@ import com.pcodee.xdxd.components.Timer
 
 @Preview(device = Devices.AUTOMOTIVE_1024p, widthDp = 1280, heightDp = 800)
 @Composable
-fun E3() {
+fun E9() {
 
-    var textState1 by remember { mutableStateOf("") }
     val shape = RoundedCornerShape(15.dp)
 
     Column {
@@ -40,7 +39,7 @@ fun E3() {
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
 
-                Text(text = "آزمون بارفیکس", fontSize = 25.sp, fontWeight = FontWeight.Bold)
+                Text(text = "آزمون دو رفت و برگشت", fontSize = 25.sp, fontWeight = FontWeight.Bold)
 
                 Spacer(modifier = Modifier.width(10.dp))
 
@@ -86,7 +85,7 @@ fun E3() {
                         Row {
 
                             //bullet (Same as Title)
-                            Text(text = "آزمون بارفیکس در ۶۰ ثانیه\t\t", fontSize = 24.sp)
+                            Text(text = "آزمون دو رفت و برگشت\t", fontSize = 24.sp)
 
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),
@@ -133,7 +132,7 @@ fun E3() {
                     horizontalArrangement = Arrangement.End
                 ) {
 
-                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                         Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp))
 
@@ -147,43 +146,16 @@ fun E3() {
 
                         Row(verticalAlignment = Alignment.Top) {
 
-                            //Test Result Text
-                            OutlinedTextField(
-                                modifier = Modifier
-                                    .width(130.dp)
-                                    .height(30.dp),
-                                value = textState1,
-                                onValueChange = {textState1 = it},
-                                readOnly = false,
-                                singleLine = true,
-                                colors = TextFieldDefaults.outlinedTextFieldColors(
-                                    focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray
-                                )
-                            )
-
                             Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 50.dp))
-
-                            Text(
-                                "تعداد بارفیکس در ۶۰ ثانیه",
-                                fontSize = (24.sp),
-                                modifier = Modifier.padding(top = 7.dp)
-                            )
-
-                            Image(
-                                painter = painterResource(id = R.drawable.bullet),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .padding(10.dp)
-                                    .size(20.dp)
-                            )
                         }
                     }
+
+                    Spacer(modifier = Modifier.padding(horizontal = 40.dp))
 
                     Divider(color = Color.Gray, modifier = Modifier.height(200.dp).width(1.dp))
 
                     Image(
-                        painter = painterResource(id = R.drawable.stretching),
+                        painter = painterResource(id = R.drawable.runningback),
                         modifier = Modifier.size(200.dp),
                         contentDescription = ""
                     )
