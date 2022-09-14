@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -139,11 +140,11 @@ fun E3() {
                         Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp))
 
 
-                            //Timer
-                            Timer(
-                                totalTime = 15L * 1000L,
-                                modifier = Modifier.size(130.dp)
-                            )
+                        //Timer
+                        Timer(
+                            totalTime = 15L * 1000L,
+                            modifier = Modifier.size(130.dp)
+                        )
 
 
 
@@ -158,7 +159,7 @@ fun E3() {
                                     .width(130.dp)
                                     .height(30.dp),
                                 value = textState1,
-                                onValueChange = { },
+                                onValueChange = {textState1 = it},
                                 readOnly = false,
                                 singleLine = true,
                                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -215,23 +216,37 @@ fun E3() {
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    //Next Level Button
+
                     Spacer(modifier = Modifier.padding(horizontal = 20.dp))
 
+                    //Gradient
+                    val gradientGreenToGreen = Brush.horizontalGradient(
+                        0f to Color(0xFF66EA95),
+                        1000f to Color(0xFF54E459)
+                    )
+
+                    //Next Level Button
                     Button(
                         modifier = Modifier
-                            .width(200.dp)
-                            .height(50.dp)
-                            .shadow(elevation = 8.dp),
-                        colors = ButtonDefaults.buttonColors(Color(0xFF62E889)),
-                        shape = CutCornerShape(4.dp),
-                        onClick = {}
+                            .width(240.dp)
+                            .height(65.dp)
+                            .shadow(elevation = 15.dp),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
+                        contentPadding = PaddingValues(),
+                        shape = CutCornerShape(5.dp),
+                        onClick = { }
                     ) {
-                        Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 30.sp)
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .background(gradientGreenToGreen),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 35.sp)
+                        }
                     }
                 }
             }
         }
     }
 }
-

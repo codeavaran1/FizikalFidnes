@@ -268,49 +268,32 @@ fun E2() {
                     horizontalArrangement = Arrangement.Start,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    //Next Level Button
+
                     Spacer(modifier = Modifier.padding(horizontal = 20.dp))
 
                     //Gradient
                     val gradientGreenToGreen = Brush.horizontalGradient(0f to Color(0xFF66EA95), 1000f to Color(0xFF54E459))
+
+                    //Next Level Button
                     Button(
                         modifier = Modifier
-                            .width(200.dp)
-                            .height(50.dp)
-                            .fillMaxSize()
-                            .clip(RoundedCornerShape(10.dp, 10.dp, 10.dp, 10.dp))
-                            .shadow(elevation = 8.dp)
-                            .background(gradientGreenToGreen),
-                        colors =ButtonDefaults.buttonColors(Color.Transparent),
-                        onClick = {}
+                            .width(240.dp)
+                            .height(65.dp)
+                            .shadow(elevation = 15.dp),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
+                        contentPadding = PaddingValues(),
+                        shape = CutCornerShape(5.dp),
+                        onClick = {  }
                     ) {
                         Box(
                             modifier = Modifier
                                 .fillMaxSize()
-                                .background(gradientGreenToGreen)
-                                .then(Modifier),
-                            contentAlignment = Alignment.Center,
+                                .background(gradientGreenToGreen),
+                            contentAlignment = Alignment.Center
                         ) {
-                            Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 30.sp,modifier=Modifier.fillMaxSize().background(Color.Transparent))
+                            Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 35.sp)
                         }
                     }
-
-
-
-
-                   /* Button(
-                        modifier = Modifier
-                            .width(200.dp)
-                            .height(50.dp)
-                            //.clip(RoundedCornerShape(10.dp, 10.dp, 10.dp, 10.dp))
-                            .shadow(elevation = 8.dp)
-                            .background(gradientGreenToGreen),
-                        colors =ButtonDefaults.buttonColors(Color.Transparent),
-                        onClick = {}
-                    ) {
-                        Text(text = "<\t\tمرحله بعد", color = Color.White, fontSize = 30.sp,modifier=Modifier.fillMaxSize().background(Color.Transparent))
-                    }*/
-
                 }
             }
         }
