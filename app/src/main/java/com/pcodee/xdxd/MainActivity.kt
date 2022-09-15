@@ -21,11 +21,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+                    // E2()
+                    //Timer()
                     modir1()
-
-
-
-
                 }
             }
         }
@@ -33,13 +31,7 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    FizikaFidnesTheme {
 
-    }
-}
 
 
 
