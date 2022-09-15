@@ -128,16 +128,14 @@ fun E10() {
                     }
                 }
 
-
                 Spacer(modifier = Modifier.padding(30.dp))
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
                 ) {
 
-
                     Column {
-
 
                         Spacer(modifier = Modifier.padding(15.dp))
 
@@ -211,85 +209,6 @@ fun E10() {
                             )
                         }
                     }
-
-
-                   /* Column {
-                        Row {
-
-                            //Test Result Text 1 (right paw)
-                            OutlinedTextField(
-                                modifier = Modifier
-                                    .width(130.dp)
-                                    //.border(border = BorderStroke(color = Color.Red))
-                                    .height(30.dp),
-                                value = textState1,
-                                onValueChange = {textState1 = it},
-                                readOnly = false,
-                                singleLine = true,
-                                colors = TextFieldDefaults.outlinedTextFieldColors(
-                                    focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray)
-                            )
-
-                            Text(" عدد", fontSize = 16.sp)
-
-                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
-
-                            Text(
-                                "قدرت پنجه دست راست",
-                                fontSize = (24.sp),
-                                modifier = Modifier.padding(top = 7.dp)
-                            )
-
-                            Image(
-                                painter = painterResource(id = R.drawable.bullet),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .padding(10.dp)
-                                    .size(20.dp)
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.padding(vertical = 20.dp))
-
-                        Row {
-
-                            //Test Result Text 2 (left paw)
-                            OutlinedTextField(
-                                modifier = Modifier
-                                    .width(130.dp)
-                                    .height(30.dp),
-                                value = textState2,
-                                onValueChange = {textState2 = it},
-                                readOnly = false,
-                                singleLine = true,
-                                colors = TextFieldDefaults.outlinedTextFieldColors(
-                                    focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray)
-                            )
-
-                            Text(" عدد", fontSize = 16.sp)
-
-                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
-
-                            Text(
-                                "قدرت پنجه دست چپ",
-                                fontSize = (24.sp),
-                                modifier = Modifier.padding(top = 7.dp)
-                            )
-                            Image(
-                                painter = painterResource(id = R.drawable.bullet),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .padding(10.dp)
-                                    .size(20.dp)
-                            )
-                        }
-
-                        //Spacer(modifier = Modifier.padding(5.dp))
-
-                    }*/
-
 
                     Divider(
                         color = Color.Gray,
