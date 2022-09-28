@@ -8,8 +8,8 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.pcodee.xdxd.screens.modir1
-import com.pcodee.xdxd.ui.theme.FizikaFidnesTheme
+import com.pcodee.xdxd.presentation.components.screens.modir1
+import com.pcodee.xdxd.presentation.theme.FizikaFidnesTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

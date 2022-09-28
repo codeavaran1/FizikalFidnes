@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.screens
+package com.pcodee.xdxd.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,12 +24,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pcodee.xdxd.R
-import com.pcodee.xdxd.components.Timer
+import com.pcodee.xdxd.presentation.components.Timer
 
 @Preview(device = Devices.AUTOMOTIVE_1024p, widthDp = 1280, heightDp = 800)
 @Composable
-fun E8() {
+fun E3() {
 
+    var textState1 by remember { mutableStateOf("") }
     val shape = RoundedCornerShape(15.dp)
 
     Column {
@@ -39,7 +40,7 @@ fun E8() {
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
 
-                Text(text = "تست دو استقامت", fontSize = 25.sp, fontWeight = FontWeight.Bold)
+                Text(text = "آزمون بارفیکس", fontSize = 25.sp, fontWeight = FontWeight.Bold)
 
                 Spacer(modifier = Modifier.width(10.dp))
 
@@ -85,7 +86,7 @@ fun E8() {
                         Row {
 
                             //bullet (Same as Title)
-                            Text(text = "تست دو استقامت\t\t", fontSize = 24.sp)
+                            Text(text = "آزمون بارفیکس در ۶۰ ثانیه\t\t", fontSize = 24.sp)
 
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),
@@ -132,7 +133,7 @@ fun E8() {
                     horizontalArrangement = Arrangement.End
                 ) {
 
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
                         Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp))
 
@@ -146,16 +147,43 @@ fun E8() {
 
                         Row(verticalAlignment = Alignment.Top) {
 
+                            //Test Result Text
+                            OutlinedTextField(
+                                modifier = Modifier
+                                    .width(130.dp)
+                                    .height(30.dp),
+                                value = textState1,
+                                onValueChange = {textState1 = it},
+                                readOnly = false,
+                                singleLine = true,
+                                colors = TextFieldDefaults.outlinedTextFieldColors(
+                                    focusedBorderColor = Color.LightGray,
+                                    unfocusedBorderColor = Color.LightGray
+                                )
+                            )
+
                             Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 50.dp))
+
+                            Text(
+                                "تعداد بارفیکس در ۶۰ ثانیه",
+                                fontSize = (24.sp),
+                                modifier = Modifier.padding(top = 7.dp)
+                            )
+
+                            Image(
+                                painter = painterResource(id = R.drawable.bullet),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .padding(10.dp)
+                                    .size(20.dp)
+                            )
                         }
                     }
-
-                    Spacer(modifier = Modifier.padding(horizontal = 40.dp))
 
                     Divider(color = Color.Gray, modifier = Modifier.height(200.dp).width(1.dp))
 
                     Image(
-                        painter = painterResource(id = R.drawable.emergencyexit),
+                        painter = painterResource(id = R.drawable.stretching),
                         modifier = Modifier.size(200.dp),
                         contentDescription = ""
                     )

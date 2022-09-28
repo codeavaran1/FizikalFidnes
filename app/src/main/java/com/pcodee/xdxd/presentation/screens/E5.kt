@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.screens
+package com.pcodee.xdxd.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pcodee.xdxd.R
-import com.pcodee.xdxd.components.Timer
+import com.pcodee.xdxd.presentation.components.Timer
 
 @Preview(device = Devices.AUTOMOTIVE_1024p, widthDp = 1280, heightDp = 800)
 @Composable

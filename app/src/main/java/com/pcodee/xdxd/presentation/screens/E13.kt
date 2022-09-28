@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.screens
+package com.pcodee.xdxd.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.components
+package com.pcodee.xdxd.presentation.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image

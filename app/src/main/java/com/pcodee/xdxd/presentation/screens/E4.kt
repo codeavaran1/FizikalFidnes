@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.screens
+package com.pcodee.xdxd.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,11 +24,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pcodee.xdxd.R
-import com.pcodee.xdxd.components.Timer
+import com.pcodee.xdxd.presentation.components.Timer
 
 @Preview(device = Devices.AUTOMOTIVE_1024p, widthDp = 1280, heightDp = 800)
 @Composable
-fun E12() {
+fun E4() {
 
     val shape = RoundedCornerShape(15.dp)
 
@@ -39,7 +39,7 @@ fun E12() {
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
 
-                Text(text = "آزمون دو (۱۵۰۰ متر)", fontSize = 25.sp, fontWeight = FontWeight.Bold)
+                Text(text = "آزمون دو چابکی و سرعت (۹*۴ متر)", fontSize = 25.sp, fontWeight = FontWeight.Bold)
 
                 Spacer(modifier = Modifier.width(10.dp))
 
@@ -85,7 +85,7 @@ fun E12() {
                         Row {
 
                             //bullet (Same as Title)
-                            Text(text = "آزمون دو (۱۵۰۰ متر)\t\t", fontSize = 24.sp)
+                            Text(text = "آزمون دو چابکی و سرعت (۹*۴ متر)\t\t", fontSize = 24.sp)
 
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),

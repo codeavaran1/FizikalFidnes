@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.screens
+package com.pcodee.xdxd.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,15 +24,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pcodee.xdxd.R
-
+import com.pcodee.xdxd.presentation.components.Timer
 
 @Preview(device = Devices.AUTOMOTIVE_1024p, widthDp = 1280, heightDp = 800)
 @Composable
-fun E2() {
+fun E7() {
 
     var textState1 by remember { mutableStateOf("") }
-    var textState2 by remember { mutableStateOf("") }
-    var textState3 by remember { mutableStateOf("") }
     val shape = RoundedCornerShape(15.dp)
 
     Column {
@@ -42,8 +40,10 @@ fun E2() {
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
 
-                Text(text = "تست حرکات کششی", fontSize = 25.sp, fontWeight = FontWeight.Bold)
+                Text(text = "آزمون شنای خشک", fontSize = 25.sp, fontWeight = FontWeight.Bold)
+
                 Spacer(modifier = Modifier.width(10.dp))
+
                 Icon(
                     imageVector = Icons.Rounded.ArrowForward,
                     contentDescription = "Icon",
@@ -54,19 +54,15 @@ fun E2() {
             }
         }
 
-
         Surface(color = Color(0xFFF3F5F7)) {
             Column(
                 modifier = Modifier
                     .padding(10.dp)
                     .clip(shape)
                     .background(color = Color.White)
-            ) { 
-
+            ) {
 
                 Spacer(modifier = Modifier.padding(top = 20.dp))
-
-
 
                 Row(
                     modifier = Modifier
@@ -79,10 +75,8 @@ fun E2() {
                         painter = painterResource(id = R.drawable.instruction),
                         contentDescription = ""
                     )
+
                     Spacer(modifier = Modifier.padding(start = 20.dp, bottom = 20.dp))
-
-
-
 
                     Column(
                         modifier = Modifier.fillMaxWidth(),
@@ -92,7 +86,8 @@ fun E2() {
                         Row {
 
                             //bullet (Same as Title)
-                            Text(text = "تست حرکات کششی\t\t", fontSize = 24.sp)
+                            Text(text = "آزمون شنای خشک در ۶۰ ثانیه\t\t", fontSize = 24.sp)
+
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),
                                 contentDescription = "",
@@ -100,6 +95,7 @@ fun E2() {
                                     .size(30.dp)
                                     .padding(top = 8.dp)
                             )
+
                             Spacer(modifier = Modifier.padding(horizontal = 30.dp))
 
                         }
@@ -113,7 +109,9 @@ fun E2() {
                                 fontSize = 25.sp,
                                 fontWeight = FontWeight.Medium
                             )
+
                             Text("\t\t:آزمون دهنده\t", fontSize = 30.sp)
+
                             //Image
                             Image(
                                 painter = painterResource(id = R.drawable.baselineperson24px),
@@ -123,119 +121,55 @@ fun E2() {
                             )
 
                             Spacer(modifier = Modifier.padding(horizontal = 45.dp))
+
                         }
-
-
                     }
                 }
 
-
                 Spacer(modifier = Modifier.padding(30.dp))
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.End
                 ) {
 
-                    Column {
-                        Row {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-                            //Test Result Text 1
+                        Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp))
+
+                        //Timer
+                        Timer(
+                            totalTime = 15L * 1000L,
+                            modifier = Modifier.size(130.dp)
+                        )
+
+                        Spacer(modifier = Modifier.padding(vertical = 10.dp))
+
+                        Row(verticalAlignment = Alignment.Top) {
+
+                            //Test Result Text
                             OutlinedTextField(
                                 modifier = Modifier
                                     .width(130.dp)
-                                    //.border(border = BorderStroke(color = Color.Red))
                                     .height(30.dp),
                                 value = textState1,
                                 onValueChange = {textState1 = it},
                                 readOnly = false,
                                 singleLine = true,
                                 colors = TextFieldDefaults.outlinedTextFieldColors(
-                                   focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray)
+                                    focusedBorderColor = Color.LightGray,
+                                    unfocusedBorderColor = Color.LightGray
                                 )
+                            )
 
-                            Text(" cm", fontSize = 16.sp)
-
-                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
+                            Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 50.dp))
 
                             Text(
-                                "نتیجه تست ۱",
+                                "تعداد شنای خشک در ۶۰ ثانیه",
                                 fontSize = (24.sp),
                                 modifier = Modifier.padding(top = 7.dp)
                             )
-                            Image(
-                                painter = painterResource(id = R.drawable.bullet),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .padding(10.dp)
-                                    .size(20.dp)
-                            )
-                        }
 
-
-                        Spacer(modifier = Modifier.padding(15.dp))
-
-                        Row {
-
-                            //Test Result Text 2
-                            OutlinedTextField(
-                                modifier = Modifier
-                                    .width(130.dp)
-                                    .height(30.dp),
-                                value = textState2,
-                                onValueChange = {textState2 = it},
-                                readOnly = false,
-                                singleLine = true,
-                                colors = TextFieldDefaults.outlinedTextFieldColors(
-                                    focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray)
-                            )
-
-                            Text(" cm", fontSize = 16.sp)
-
-                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
-
-                            Text(
-                                "نتیجه تست ۲",
-                                fontSize = (24.sp),
-                                modifier = Modifier.padding(top = 7.dp)
-                            )
-                            Image(
-                                painter = painterResource(id = R.drawable.bullet),
-                                contentDescription = "",
-                                modifier = Modifier
-                                    .padding(10.dp)
-                                    .size(20.dp)
-                            )
-                        }
-
-                        Spacer(modifier = Modifier.padding(15.dp))
-
-                        Row {
-
-                            //Test Result Text 3
-                            OutlinedTextField(
-                                modifier = Modifier
-                                    .width(130.dp)
-                                    .height(30.dp),
-                                value = textState3,
-                                onValueChange = {textState3 = it},
-                                readOnly = false,
-                                singleLine = true,
-                                colors = TextFieldDefaults.outlinedTextFieldColors(
-                                    focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray)
-                            )
-
-                            Text(" cm", fontSize = 16.sp)
-
-                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
-
-                            Text(
-                                "نتیجه تست ۳",
-                                fontSize = (24.sp),
-                                modifier = Modifier.padding(top = 7.dp)
-                            )
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),
                                 contentDescription = "",
@@ -246,19 +180,13 @@ fun E2() {
                         }
                     }
 
-
-                    Divider(
-                        color = Color.Gray,
-                        modifier = Modifier
-                            .height(200.dp)
-                            .width(1.dp)
-                    )
+                    Divider(color = Color.Gray, modifier = Modifier.height(200.dp).width(1.dp))
 
                     Image(
-                        painter = painterResource(id = R.drawable.stretchingexercises),
+                        painter = painterResource(id = R.drawable.pushup),
                         modifier = Modifier.size(200.dp),
                         contentDescription = ""
-                        )
+                    )
 
                     Spacer(modifier = Modifier.padding(horizontal = 80.dp))
                 }
@@ -283,7 +211,7 @@ fun E2() {
                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
                         contentPadding = PaddingValues(),
                         shape = CutCornerShape(5.dp),
-                        onClick = {  }
+                        onClick = { }
                     ) {
                         Box(
                             modifier = Modifier

@@ -1,4 +1,4 @@
-package com.pcodee.xdxd.screens
+package com.pcodee.xdxd.presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,13 +24,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pcodee.xdxd.R
-import com.pcodee.xdxd.components.Timer
+
 
 @Preview(device = Devices.AUTOMOTIVE_1024p, widthDp = 1280, heightDp = 800)
 @Composable
-fun E7() {
+fun E10() {
 
     var textState1 by remember { mutableStateOf("") }
+    var textState2 by remember { mutableStateOf("") }
+
     val shape = RoundedCornerShape(15.dp)
 
     Column {
@@ -40,10 +42,8 @@ fun E7() {
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
 
-                Text(text = "آزمون شنای خشک", fontSize = 25.sp, fontWeight = FontWeight.Bold)
-
+                Text(text = "تست قدرت پنجه", fontSize = 25.sp, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.width(10.dp))
-
                 Icon(
                     imageVector = Icons.Rounded.ArrowForward,
                     contentDescription = "Icon",
@@ -54,6 +54,7 @@ fun E7() {
             }
         }
 
+
         Surface(color = Color(0xFFF3F5F7)) {
             Column(
                 modifier = Modifier
@@ -62,7 +63,10 @@ fun E7() {
                     .background(color = Color.White)
             ) {
 
+
                 Spacer(modifier = Modifier.padding(top = 20.dp))
+
+
 
                 Row(
                     modifier = Modifier
@@ -75,19 +79,19 @@ fun E7() {
                         painter = painterResource(id = R.drawable.instruction),
                         contentDescription = ""
                     )
-
                     Spacer(modifier = Modifier.padding(start = 20.dp, bottom = 20.dp))
+
+
+
 
                     Column(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalAlignment = Alignment.End
                     ) {
-
                         Row {
 
                             //bullet (Same as Title)
-                            Text(text = "آزمون شنای خشک در ۶۰ ثانیه\t\t", fontSize = 24.sp)
-
+                            Text(text = "تست قدرت پنجه\t\t", fontSize = 24.sp)
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),
                                 contentDescription = "",
@@ -95,7 +99,6 @@ fun E7() {
                                     .size(30.dp)
                                     .padding(top = 8.dp)
                             )
-
                             Spacer(modifier = Modifier.padding(horizontal = 30.dp))
 
                         }
@@ -109,9 +112,7 @@ fun E7() {
                                 fontSize = 25.sp,
                                 fontWeight = FontWeight.Medium
                             )
-
                             Text("\t\t:آزمون دهنده\t", fontSize = 30.sp)
-
                             //Image
                             Image(
                                 painter = painterResource(id = R.drawable.baselineperson24px),
@@ -121,8 +122,9 @@ fun E7() {
                             )
 
                             Spacer(modifier = Modifier.padding(horizontal = 45.dp))
-
                         }
+
+
                     }
                 }
 
@@ -133,21 +135,13 @@ fun E7() {
                     horizontalArrangement = Arrangement.End
                 ) {
 
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Column {
 
-                        Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp))
+                        Spacer(modifier = Modifier.padding(15.dp))
 
-                        //Timer
-                        Timer(
-                            totalTime = 15L * 1000L,
-                            modifier = Modifier.size(130.dp)
-                        )
+                        Row {
 
-                        Spacer(modifier = Modifier.padding(vertical = 10.dp))
-
-                        Row(verticalAlignment = Alignment.Top) {
-
-                            //Test Result Text
+                            //Test Result Text 1 (right paw)
                             OutlinedTextField(
                                 modifier = Modifier
                                     .width(130.dp)
@@ -158,18 +152,54 @@ fun E7() {
                                 singleLine = true,
                                 colors = TextFieldDefaults.outlinedTextFieldColors(
                                     focusedBorderColor = Color.LightGray,
-                                    unfocusedBorderColor = Color.LightGray
-                                )
+                                    unfocusedBorderColor = Color.LightGray)
                             )
 
-                            Spacer(modifier = Modifier.padding(horizontal = 20.dp, vertical = 50.dp))
+                            Text(" عدد", fontSize = 16.sp)
+
+                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
 
                             Text(
-                                "تعداد شنای خشک در ۶۰ ثانیه",
+                                "قدرت پنجه دست راست",
                                 fontSize = (24.sp),
                                 modifier = Modifier.padding(top = 7.dp)
                             )
+                            Image(
+                                painter = painterResource(id = R.drawable.bullet),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .padding(10.dp)
+                                    .size(20.dp)
+                            )
+                        }
 
+                        Spacer(modifier = Modifier.padding(15.dp))
+
+                        Row {
+
+                            //Test Result Text 2 (left paw)
+                            OutlinedTextField(
+                                modifier = Modifier
+                                    .width(130.dp)
+                                    .height(30.dp),
+                                value = textState2,
+                                onValueChange = {textState2 = it},
+                                readOnly = false,
+                                singleLine = true,
+                                colors = TextFieldDefaults.outlinedTextFieldColors(
+                                    focusedBorderColor = Color.LightGray,
+                                    unfocusedBorderColor = Color.LightGray)
+                            )
+
+                            Text(" عدد", fontSize = 16.sp)
+
+                            Spacer(modifier = Modifier.padding(horizontal = 50.dp))
+
+                            Text(
+                                "  قدرت پنجه دست چپ",
+                                fontSize = (24.sp),
+                                modifier = Modifier.padding(top = 7.dp)
+                            )
                             Image(
                                 painter = painterResource(id = R.drawable.bullet),
                                 contentDescription = "",
@@ -180,10 +210,15 @@ fun E7() {
                         }
                     }
 
-                    Divider(color = Color.Gray, modifier = Modifier.height(200.dp).width(1.dp))
+                    Divider(
+                        color = Color.Gray,
+                        modifier = Modifier
+                            .height(200.dp)
+                            .width(1.dp)
+                    )
 
                     Image(
-                        painter = painterResource(id = R.drawable.pushup),
+                        painter = painterResource(id = R.drawable.pawpower),
                         modifier = Modifier.size(200.dp),
                         contentDescription = ""
                     )
@@ -211,7 +246,7 @@ fun E7() {
                         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
                         contentPadding = PaddingValues(),
                         shape = CutCornerShape(5.dp),
-                        onClick = { }
+                        onClick = {  }
                     ) {
                         Box(
                             modifier = Modifier
