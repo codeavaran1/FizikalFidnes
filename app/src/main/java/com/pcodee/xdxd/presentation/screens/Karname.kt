@@ -1,13 +1,10 @@
 package com.pcodee.xdxd.presentation.screens
 
-import androidx.compose.runtime.Composable
-
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -17,21 +14,40 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.pcodee.xdxd.R
 import com.pcodee.xdxd.presentation.components.Moves
+import com.pcodee.xdxd.util.Date
+import com.zachklipp.richtext.ui.printing.Printable
+import com.zachklipp.richtext.ui.printing.rememberPrintableController
+import com.zachklipp.richtext.ui.printing.responsivePadding
 
 
 @Composable
 fun Karname(year:Int,month:Int,day:Int,time:String,name:String) {
+    val date = Date()
+    val printableController = rememberPrintableController()
+    val document = "ساعت :"+date.timeOfDay
     Surface(
         color = Color(0x9AF3F5F7),
         modifier = Modifier
             .fillMaxSize()
     ) {
 
+        Printable(
+            printableController,
+            pageDpi = 96,
+            modifier = Modifier
+                .responsivePadding(
+                    600.dp to 32.dp,
+                    Dp.Infinity to 90.dp
+                )
+                .verticalScroll(rememberScrollState())
+        ) {//printable
 
         Column(modifier = Modifier.fillMaxSize()) {
             TopAppBar(backgroundColor = Color.White) {
@@ -65,9 +81,8 @@ fun Karname(year:Int,month:Int,day:Int,time:String,name:String) {
                             Image(
                                 painter = painterResource(id = R.drawable.profile),
                                 contentDescription = "",
-                                modifier = Modifier.padding(end = 130.dp)
+                                modifier = Modifier.padding(end = 50.dp)
                             )
-                            Spacer(modifier = Modifier.padding(end = 36.dp))
                             Text(
                                 text = "کارنامه پایانی",
                                 fontStyle = FontStyle.Italic,
@@ -113,6 +128,10 @@ fun Karname(year:Int,month:Int,day:Int,time:String,name:String) {
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(start = 50.dp, top = 30.dp)
                             )
+                            Button(onClick = { printableController.print(document,document)},
+                                modifier=Modifier.padding(start = 500.dp,top=25.dp).background(Color.Transparent)) {
+                                Text(text = "pdf فایل ",color=Color.Black, )
+                            }
 
                         }
                         Row(
@@ -147,8 +166,8 @@ fun Karname(year:Int,month:Int,day:Int,time:String,name:String) {
 
 
 
-                        LazyColumn(modifier = Modifier) {
-                            item {
+                        Column() {
+
                                 Moves(
                                     backgroundColor = Color(243, 248, 254, 255),
                                     title = "تست حرکات کششی",
@@ -186,49 +205,137 @@ fun Karname(year:Int,month:Int,day:Int,time:String,name:String) {
                                 )
                                 Moves(
                                     backgroundColor = Color(243, 248, 254, 255),
-                                    title = "آزمون دو چابکی و سرعت 4x9",
+                                    title = "آزمون دو چابکی و سرعت چهار در نه",
                                     time = "1",
                                     amount = "1",
                                     score = "1"
                                 )
                                 Moves(
                                     backgroundColor = Color(243, 248, 254, 255),
-                                    title = "عنوان",
+                                    title = "پرش جفت",
                                     time = "1",
                                     amount = "1",
                                     score = "1"
                                 )
                                 Moves(
                                     backgroundColor = Color(243, 248, 254, 255),
-                                    title = "عنوان",
+                                    title = "دراز نشست",
                                     time = "1",
                                     amount = "1",
                                     score = "1"
                                 )
                                 Moves(
                                     backgroundColor = Color(243, 248, 254, 255),
-                                    title = "عنوان",
+                                    title = "حمل آتش خاموش کن",
                                     time = "1",
                                     amount = "1",
                                     score = "1"
                                 )
                                 Moves(
                                     backgroundColor = Color(243, 248, 254, 255),
-                                    title = "عنوان",
+                                    title = "شنا خشک",
                                     time = "1",
                                     amount = "1",
                                     score = "1"
                                 )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو استقامت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
+                            Moves(
+                                backgroundColor = Color(243, 248, 254, 255),
+                                title = "دو رفت و برگشت",
+                                time = "1",
+                                amount = "1",
+                                score = "1"
+                            )
 
 
-                            }
+
                         }
 
                     }
+
                 }
             }
 
 
         }
     }
+
+    }
+
 }
