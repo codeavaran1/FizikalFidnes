@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'com.google.devtools.ksp' version '1.6.21-1.0.6'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 
 }
 kotlin {
@@ -113,8 +114,7 @@ dependencies {
     ksp 'io.github.raamcosta.compose-destinations:ksp:1.1.2-beta'
     ///ok
     ////pdf
-    /*def richtext_version = "0.14.1"
-    implementation "com.halilibo.compose-richtext:printing:$richtext_version"*/
+
     implementation "com.halilibo.compose-richtext:printing:0.14.1"
     implementation "androidx.lifecycle:lifecycle-livedata-core:2.6.0-alpha02"
 
